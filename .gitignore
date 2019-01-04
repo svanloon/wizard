@@ -1,4 +1,7 @@
 *.i*
+.classpath
+.project
+.settings
 build
 out
 .gradle
