@@ -1,0 +1,23 @@
+BUT DU JEU
+Le but du jeu est de prédire correctement le nombre de levees que chaque personne ramasse à chaque tour. La personne qui prédit juste se voit attribuer des points, et c’est la personne qui a le plus grand nombre de points qui gagne la partie.
+DISTRIBUTION DES CARTES 
+Pour choisir le donneur, chaque joueur recoit une carte et c’est la carte la plus haute qui l’emporte. Les cartes sont distributées ainsi: au premier tour, chaque joueur recoit une carte; au deuxième tour, deux cartes’ au troisième tour, trois cartes et ainsi de suite. Après avoir joué la première partie, le joueur à la gauche  du premier donneur brasse et distribue les cartes. A` la fin de la brasse, la carte suivante est retournée: elle indique la couleur de l’atout. Si la carte retournée est un Joker, elle est de nouveau retournée et il n’y a aucun atout pour ce tour. Si la carte retournée est un Wizard, le donneur choisit la coloeur de l’atout et il peut examiner ses cartes avant d’annoncer l’atout. Il n’y a aucun atout au dernier tour de chaque partie.
+ANNONCE DES MISES
+Chaque joueur, commencant à la gauche du donneur, annonce le nombre de levées qu’il compte faire (zéro ou une pour le premier tour) et le marqueur note ce nombre sur le carnet. Si le dernier joueur qui fait sa mise a le pointage le plus élevé sur la feuile de pointage (et qu’il ne partage pas la première place avec une autre personne), il peut, le cas èchèant, ne faire aucune mise. Les mises seront don’t ègales. Une personne doit alors perdre des points après avoir joué sa main puisque le nombre de levées annoncées est inférieur ou supérieur à la mise.
+*Lorsque le nombre total de levées correspond au nombre total de levées disponibles, la mise est «égale».
+DÉROULEMENT DU JEU 
+Le Joueur à gauche du donneur joue la première carte de son choix, puis les autres continuent dans le sens des aiguilles d’une montre. Ils doivent absolument fournirla couleur demandés’ils en ont. Il y a deux exceptions à cette dernière règle. On peut jouer un Wizard ou un Joker, à n’importe quel moment! 
+Le joueur qui remporte la levé est celui qui: 
+a)       a joué le premier Wizard; 
+b)      a joué le plus haut atout s’il n’ya pas eu de Wizard;
+c)      a joué la plus haute carte dans la couleur demandée, s’il n’y a pas d’atout. Le gagnant de la levée devient le donneur au tour suivant.
+
+  WIZARDS OU JOKERS EN PREMIER
+Le joueur qui joue un Wizard comme première carte remporte la levée et les autres joueurs peuvent se débarrasser de n’importe quelle carte, y compris un autre Wizard. Si la première carte jouée est un Joker, elle est nulle. C’est la deuxième carte jouée qui détermine la couleur pour le tour. Le Joker perd toujours. La seule exception à cette règle est lorsque plusieurs Jokers sont joués. En efet, le premier Joker déposé sur la table remporte la levée 
+
+  POINTS
+Le joueur qui a prédit correctement le nombre de ses levées marque 20 points, plus 10 points par levée ramassée. Le joueur qui n’a pas prédit correctement ses levées perd 10 points par levée en plus ou en moins. Chaque fois qu’un joueur fait une fausse prédiction, ses résultatssont encerclés sur le carnet. 
+
+  AUTRES TYPES DE MISE
+1. Mise cachée: tous les joueurs annoncent leur mise en même temps. 
+2. Mise retardée: tous les joueurs inscrivent leur mise sur un bout de papier et la révèlent dès que la première carte a été jouée. 

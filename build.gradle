@@ -1,0 +1,26 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+
+repositories {
+    mavenCentral()
+}
+
+
+idea {
+    project {
+        //if you want to set specific jdk and language level
+        jdkName = '1.7'
+        languageLevel = '1.7'
+    }
+    module {
+        downloadSources=true
+        downloadJavadoc=true
+    }
+}
+
+dependencies {
+    compile files('lib/junit-3.8.1.jar', 'lib/log4j.jar', 'lib/one-jar-boot-0.95.jar')
+
+}
+
