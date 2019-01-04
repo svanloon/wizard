@@ -41,18 +41,13 @@ import com.svanloon.game.wizard.stats.Play;
 import com.svanloon.game.wizard.stats.Round;
 import com.svanloon.game.wizard.stats.Trick;
 
-/**
- * 
- * @author svanloon
- * @version $Rev$, $LastChangedDate$
- */
 public class WizardEngine implements Runnable{
 	private GameOptions go;
 	private Game _game;
 	private CardFinder cardFinder;
 	/**
-	 * 
-	 * Constructs a new <code>WizardEngine</code> object. 
+	 *
+	 * Constructs a new <code>WizardEngine</code> object.
 	 *
 	 * @param go
 	 */
@@ -66,7 +61,7 @@ public class WizardEngine implements Runnable{
 	private List<Player> _playerCollection = new ArrayList<Player>();
 	private Score overallScores = new Score();
 	private GameEventBroadcaster gameEventNotifier = new GameEventBroadcaster();
-	
+
 	private Card dealCards(int round, int dealer, int lead) {
 		//Deck deck = new Deck(new PokerCardFinder());
 		Deck deck = new Deck(cardFinder);
@@ -82,7 +77,7 @@ public class WizardEngine implements Runnable{
 		if (deck.hasCards()) {
 			return deck.getCard();
 		}
-		
+
 		return null;
 	}
 
@@ -111,7 +106,7 @@ public class WizardEngine implements Runnable{
 				boolean isEven = isPlayerWinning && go.getBidType().equals(BidType.EVEN);
 				boolean isCanadian = isPlayerWinning &&  go.getBidType().equals(BidType.CANADIAN);
 				boolean isHardCore = cardsDealt > 3 && go.getBidType().equals(BidType.HARDCORE);
-		
+
 				if(isEven || isCanadian || isHardCore) {
 					int bidSoFar = bid.bidSoFar();
 					if(cardsDealt - bidSoFar >= 0) {
@@ -150,7 +145,7 @@ public class WizardEngine implements Runnable{
 		int i = 0;
 		for (Player player: this._playerCollection) {
 			int tricksWon = roundSummary.tricksWonBy(player);
-			
+
 			int bidInt = bid.findIndividualBidBy(player).getBid();
 			int score;
 			if (tricksWon == bidInt) {
@@ -201,19 +196,19 @@ public class WizardEngine implements Runnable{
 	}
 
 	/**
-	 * 
-	 * Document the addPlayers method 
+	 *
+	 * Document the addPlayers method
 	 *
 	 * @param players
 	 */
 	public void addPlayers(List<Player> players) {
 		this._playerCollection = players;
-		
+
 	}
 
 	/**
-	 * 
-	 * Document the addGameEventListener method 
+	 *
+	 * Document the addGameEventListener method
 	 *
 	 * @param listener
 	 */
@@ -242,8 +237,8 @@ public class WizardEngine implements Runnable{
 	}
 
 	/**
-	 * 
-	 * Document the getGame method 
+	 *
+	 * Document the getGame method
 	 *
 	 * @return Game
 	 */
@@ -251,8 +246,8 @@ public class WizardEngine implements Runnable{
 		return _game;
 	}
 	/**
-	 * 
-	 * Document the run method 
+	 *
+	 * Document the run method
 	 *
 	 */
 	public void run() {
@@ -271,7 +266,7 @@ public class WizardEngine implements Runnable{
 			}
 		}
 
-		
+
 		List<Integer> playerIds = getPlayerId();
 		List<String> playerNames = getPlayerNames();
 		for (int i = 0; i < playerIds.size(); i++) {
@@ -370,11 +365,11 @@ public class WizardEngine implements Runnable{
 		}
 		return -1;
 	}
-	
+
 
 	/**
-	 * 
-	 * Document the main method 
+	 *
+	 * Document the main method
 	 *
 	 * @param args
 	 */
@@ -383,16 +378,16 @@ public class WizardEngine implements Runnable{
 		Thread t = new Thread(wizardEngine);
 		t.start();
 	}
-	
+
 	private class PlayerIterator implements Iterator<Player>, Iterable<Player> {
 
 		private int lead;
 		private List<Player> players;
 		private int i = 0;
-		
+
 		/**
-		 * 
-		 * Constructs a new <code>PlayerIterator</code> object. 
+		 *
+		 * Constructs a new <code>PlayerIterator</code> object.
 		 *
 		 * @param players
 		 * @param lead
@@ -401,7 +396,7 @@ public class WizardEngine implements Runnable{
 			this.players = players;
 			this.lead = lead;
 		}
-		
+
 		public boolean hasNext() {
 			return (i < this.players.size());
 		}
@@ -409,7 +404,7 @@ public class WizardEngine implements Runnable{
 		public Player next() {
 			Player result = this.players.get((lead + i) % this.players.size());
 			i++;
-			return result; 
+			return result;
 		}
 
 		public void remove() {

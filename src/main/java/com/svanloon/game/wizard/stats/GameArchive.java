@@ -9,30 +9,24 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Singleton stats collector
- * 
- * @author scott
- *
- */
 public class GameArchive extends ArrayList<Game>{
-	
+
 	private static final long serialVersionUID = 20070425L;
 
 	private static Object _lock = new Object();
-	
+
 	private static GameArchive _instance = null;
-	
+
 	private Game currentGame;
-	
-	
+
+
 	private GameArchive() {
 		super();
 	}
 
 	/**
-	 * 
-	 * Document the getInstance method 
+	 *
+	 * Document the getInstance method
 	 *
 	 * @return GameArchive
 	 */
@@ -45,8 +39,8 @@ public class GameArchive extends ArrayList<Game>{
 		return _instance;
 	}
 	/**
-	 * 
-	 * Document the getCurrentGame method 
+	 *
+	 * Document the getCurrentGame method
 	 *
 	 * @return Game
 	 */
@@ -55,8 +49,8 @@ public class GameArchive extends ArrayList<Game>{
 		return currentGame;
 	}
 	/**
-	 * 
-	 * Document the getCurrentRound method 
+	 *
+	 * Document the getCurrentRound method
 	 *
 	 * @return Round
 	 */
@@ -64,8 +58,8 @@ public class GameArchive extends ArrayList<Game>{
 		return currentGame.getCurrentRound();
 	}
 	/**
-	 * 
-	 * Document the getCurrentTrick method 
+	 *
+	 * Document the getCurrentTrick method
 	 *
 	 * @return Trick
 	 */
@@ -74,8 +68,8 @@ public class GameArchive extends ArrayList<Game>{
 	}
 
 	/**
-	 * 
-	 * Document the newGame method 
+	 *
+	 * Document the newGame method
 	 *
 	 */
 	public void newGame() {
@@ -83,8 +77,8 @@ public class GameArchive extends ArrayList<Game>{
 		this.add(currentGame);
 	}
 	/**
-	 * 
-	 * Document the newRound method 
+	 *
+	 * Document the newRound method
 	 *
 	 * @param roundId
 	 */
@@ -92,16 +86,16 @@ public class GameArchive extends ArrayList<Game>{
 		currentGame.newRound(roundId);
 	}
 	/**
-	 * 
-	 * Document the newTrick method 
+	 *
+	 * Document the newTrick method
 	 *
 	 */
 	public void newTrick() {
 		getCurrentRound().newTrick();
 	}
 	/**
-	 * 
-	 * Document the toText method 
+	 *
+	 * Document the toText method
 	 *
 	 * @param playerId
 	 * @return String
@@ -109,21 +103,21 @@ public class GameArchive extends ArrayList<Game>{
 	public String toText(int playerId) {
 		StringBuilder result = new StringBuilder();
 		List<Integer> otherPlayers = null;
-		
+
 		for (Game game: this) {
 			//result.append(String.format("%3s\t%3s\t%3s\t%3s\t%s\n", "Rnd", "Bid", "Tk", "HS", "Notes"));
 			if (otherPlayers == null) {
 				otherPlayers = new ArrayList<Integer>(game.getPlayerMap().keySet());
 				otherPlayers.remove(Integer.valueOf(playerId));
 			}
-			
+
 			for (Round round: game) {
-				
-				result.append(String.format("#%2d|\tBid:%2d Tuk:%2d\t%1.2f [Trump:%3s]", 
-						Integer.valueOf(round.getRoundId()), 
-						Integer.valueOf(round.getBid(playerId)), 
-						Integer.valueOf(round.getTricksWon(playerId)), 
-						Double.valueOf(round.getHandStrength()), 
+
+				result.append(String.format("#%2d|\tBid:%2d Tuk:%2d\t%1.2f [Trump:%3s]",
+						Integer.valueOf(round.getRoundId()),
+						Integer.valueOf(round.getBid(playerId)),
+						Integer.valueOf(round.getTricksWon(playerId)),
+						Double.valueOf(round.getHandStrength()),
 						round.getTrump()));
 				if (round.getNotes() != null) {
 					result.append(round.getNotes());
@@ -135,25 +129,25 @@ public class GameArchive extends ArrayList<Game>{
 				result.append(String.format("%8s scored: %3d\n", game.getPlayerMap().get(entry.getKey()), entry.getValue()));
 			}
 		}
-	
+
 		return result.toString();
 	}
 	/**
-	 * 
-	 * Document the summarize method 
+	 *
+	 * Document the summarize method
 	 *
 	 * @return String
 	 */
 	public String summarize() {
 		StringBuilder result = new StringBuilder();
-		
+
 		Map<Integer, String> players = getCurrentGame().getPlayerMap();
 
 		int iterations = this.size();
 		for (Map.Entry<Integer, String> entry: players.entrySet() ) {
 			int playerId = entry.getKey().intValue();
 			String playerName = entry.getValue();
-			
+
 			int countOverTook = 0;
 			int countUnderTook = 0;
 			int countPerfect = 0;
@@ -173,36 +167,36 @@ public class GameArchive extends ArrayList<Game>{
 					sumBids += round.getBid(playerId);
 					sumTricksWon += round.getTricksWon(playerId);
 				}
-				
+
 				if (game.getWinners().contains(Integer.valueOf(playerId))) {
 					gamesWon++;
 				}
 				sumScore += game.getScores().get(Integer.valueOf(playerId)).intValue();
 			}
-			
-			
-			result.append(String.format("%-10s: %3d (*%2d +%2d|%2d %4d|%4d ) %d \n", 
-					playerName, 
+
+
+			result.append(String.format("%-10s: %3d (*%2d +%2d|%2d %4d|%4d ) %d \n",
+					playerName,
 					Long.valueOf(roundPercent(gamesWon, iterations)),
-					Long.valueOf(roundPercent(countPerfect, getCurrentGame().size() * iterations)), 
-					Long.valueOf(roundPercent(countOverTook, getCurrentGame().size() * iterations)), 
+					Long.valueOf(roundPercent(countPerfect, getCurrentGame().size() * iterations)),
+					Long.valueOf(roundPercent(countOverTook, getCurrentGame().size() * iterations)),
 					Long.valueOf(roundPercent(countUnderTook, getCurrentGame().size() * iterations)),
 					Integer.valueOf(sumBids),
-					Integer.valueOf(sumTricksWon), 
+					Integer.valueOf(sumTricksWon),
 					Integer.valueOf(sumScore / iterations)));
 		}
-	
+
 		return result.toString();
 	}
 
 
 	private static long roundPercent(int count, int rounds) {
-		return Math.round((double) count / (double)rounds * 100);  
+		return Math.round((double) count / (double)rounds * 100);
 	}
-	
+
 	/**
-	 * 
-	 * Document the writeToFile method 
+	 *
+	 * Document the writeToFile method
 	 *
 	 * @param playerId
 	 * @param path
@@ -213,20 +207,20 @@ public class GameArchive extends ArrayList<Game>{
 		BufferedWriter buffWriter = null;
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
-		
-		String fileName = "wizard_"; 
+
+		String fileName = "wizard_";
 		fileName += currentGame.getPlayerMap().get(Integer.valueOf(playerId)) + "_";
 		fileName += sdf.format(new Date());
 		fileName += ".txt";
-		
+
 		try {
-			
+
 			fileWriter = new FileWriter(path + "/" + fileName);
 			buffWriter = new BufferedWriter(fileWriter);
 			GameArchive gameArchive = GameArchive.getInstance();
 			buffWriter.write(gameArchive.toText(playerId));
 			buffWriter.write(gameArchive.summarize());
-			
+
 		} catch(IOException e) {
 			System.out.println("Exception "+ e);
 		} finally {

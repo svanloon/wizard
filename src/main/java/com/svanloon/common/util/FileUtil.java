@@ -14,18 +14,11 @@ import java.net.URL;
 import org.apache.log4j.Logger;
 import org.xml.sax.InputSource;
 
-/**
- * 
- * Document the  class 
- *
- * @author svanloon
- * @version $Rev$, $LastChangedDate$
- */
 public class FileUtil {
 	private static Logger _logger = Logger.getLogger(FileUtil.class);
 	/**
-	 * 
-	 * Document the writeFile method 
+	 *
+	 * Document the writeFile method
 	 *
 	 * @param fileName
 	 * @param fileContents
@@ -45,8 +38,8 @@ public class FileUtil {
 	// Block size to read files.
 	private static final int READ_LEN = 1024;
 	/**
-	 * 
-	 * Document the copy method 
+	 *
+	 * Document the copy method
 	 *
 	 * @param fromFile
 	 * @param toFile
@@ -109,8 +102,8 @@ public class FileUtil {
 	}
 
 	/**
-	 * 
-	 * Document the moveFile method 
+	 *
+	 * Document the moveFile method
 	 *
 	 * @param fromFilePath
 	 * @param toFilePath
@@ -123,8 +116,8 @@ public class FileUtil {
 		file.renameTo(newFile);
 	}
 	/**
-	 * 
-	 * Document the renameFile method 
+	 *
+	 * Document the renameFile method
 	 *
 	 * @param directory
 	 * @param originalFileName
@@ -142,8 +135,8 @@ public class FileUtil {
 		file.renameTo(newFile);
 	}
 	/**
-	 * 
-	 * Document the deleteFile method 
+	 *
+	 * Document the deleteFile method
 	 *
 	 * @param directory
 	 * @param fileName
@@ -159,11 +152,11 @@ public class FileUtil {
 	}
 
 	/**
-	 * 
+	 *
 	 * Read a file and return it as a String.
-	 * @param absolutePath 
+	 * @param absolutePath
 	 * @return String
-	 * 
+	 *
 	 */
 	public static String readFile(String absolutePath) {
 		FileReader fileReader = null;
@@ -195,7 +188,7 @@ public class FileUtil {
 
 	/**
 	 * Create a SAX InputSource from file.
-	 * @param f 
+	 * @param f
 	 * @return InputSource
 	 */
 	static public InputSource fileInputSource(String f) {

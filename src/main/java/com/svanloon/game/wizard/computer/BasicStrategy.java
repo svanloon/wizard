@@ -13,13 +13,6 @@ import com.svanloon.game.wizard.core.card.Suit;
 import com.svanloon.game.wizard.core.card.Value;
 import com.svanloon.game.wizard.core.card.util.WizardCardGraph;
 
-/**
- * 
- * Document the  class 
- *
- * @author svanloon
- * @version $Rev$, $LastChangedDate$
- */
 public class BasicStrategy {
 	private Logger _logger = Logger.getLogger(BasicStrategy.class);
 	private Hand hand;
@@ -36,11 +29,10 @@ public class BasicStrategy {
 	private Card lead;
 	private Card highCard;
 	private int id;
-	
+
 	/**
-	 * Constructs a new <code>HandStatistics</code> object. 
+	 * Constructs a new <code>HandStatistics</code> object.
 	 * @param hand
-	 * @param trump 
 	 */
 	public BasicStrategy(Hand hand) {
 		super();
@@ -48,8 +40,8 @@ public class BasicStrategy {
 	}
 
 	/**
-	 * 
-	 * Document the setOpponentSummary method 
+	 *
+	 * Document the setOpponentSummary method
 	 *
 	 * @param os
 	 */
@@ -57,8 +49,8 @@ public class BasicStrategy {
 		this.os = os;
 	}
 	/**
-	 * 
-	 * Document the pickTrump method 
+	 *
+	 * Document the pickTrump method
 	 *
 	 * @return Suit
 	 */
@@ -126,16 +118,6 @@ public class BasicStrategy {
 		return Suit.DIAMOND;
 	}
 
-	/**
-	 * 
-	 * Document the bid method 
-	 *
-	 * @param trump
-	 * @param min 
-	 * @param max 
-	 * @param bidNotAllowed 
-	 * @return int
-	 */
 	public int bid(Card trump, int min, int max, int bidNotAllowed) {
 		categorizePossibilities();
 		int bid;
@@ -143,7 +125,7 @@ public class BasicStrategy {
 			 bid =(int)( aces.size()/2.0 + kings.size()/4.0  + /*queens.size() + jacks.size()*/ + trumpCards.size() + hand.getWizardList().size());
 			//_logger.info(id + " bid " + bid);
 		} else {
-			bid =(int)( aces.size() + kings.size() + queens.size()/2.0 + jacks.size()/2.0 + hand.getWizardList().size());				
+			bid =(int)( aces.size() + kings.size() + queens.size()/2.0 + jacks.size()/2.0 + hand.getWizardList().size());
 		}
 		if(bid == bidNotAllowed) {
 			int oneLower = bid - 1;
@@ -160,12 +142,12 @@ public class BasicStrategy {
 				}
 			}
 		}
-		return bid;  
+		return bid;
 	}
 	/**
-	 * 
-	 * Document the playCard method 
-	 * @param wcg 
+	 *
+	 * Document the playCard method
+	 * @param wcg
 	 *
 	 * @return Card
 	 */
@@ -201,11 +183,11 @@ public class BasicStrategy {
 				card = sluffLow();
 			} else {
 				debug.append(" take sluff High");
-				card = sluffHigh();				
+				card = sluffHigh();
 			}
 		}
 		debug.append(" = " + card.toString());
-		
+
 		if(false) {
 			_logger.info(debug.toString());
 		}
@@ -216,7 +198,7 @@ public class BasicStrategy {
 	 * Sets the lead.
 	 *
 	 * @param lead The new value for lead.
-	 * @param highCard 
+	 * @param highCard
 	 */
 	private void setLeadAndHighCard(Card lead, Card highCard) {
 		this.lead = lead;

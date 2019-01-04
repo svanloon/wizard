@@ -17,17 +17,12 @@ import com.svanloon.game.wizard.core.card.Suit;
 import com.svanloon.game.wizard.language.LanguageFactory;
 import com.svanloon.game.wizard.language.MessageId;
 
-/**
- * 
- * @author Administrator
- *
- */
 public class PickSuitDialog extends JDialog implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * @param playerName 
+	 * @param playerName
 	 */
 	public PickSuitDialog(String playerName) {
 		super();
@@ -49,7 +44,7 @@ public class PickSuitDialog extends JDialog implements ActionListener {
 
 	private Component addSuits() {
 
-		
+
 		JRadioButton diamond = new JRadioButton(Suit.DIAMOND.getDescription(), true);
 		diamond.setActionCommand(Suit.DIAMOND.getShortName());
 		diamond.addActionListener(this);
@@ -75,14 +70,14 @@ public class PickSuitDialog extends JDialog implements ActionListener {
 		p.add(heart);
 		p.add(club);
 		p.add(spade);
-		
+
 		return p;
 	}
 
 	private boolean block = false;
 	/**
-	 * 
-	 * Document the prompt method 
+	 *
+	 * Document the prompt method
 	 */
 	public void prompt() {
 		this.setVisible(true);
@@ -99,8 +94,8 @@ public class PickSuitDialog extends JDialog implements ActionListener {
 	private Suit selectedSuit;
 
 	/**
-	 * 
-	 * Document the getSuit method 
+	 *
+	 * Document the getSuit method
 	 *
 	 * @return Suit
 	 */

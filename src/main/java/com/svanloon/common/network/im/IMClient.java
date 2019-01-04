@@ -12,6 +12,7 @@ import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.sound.sampled.LineUnavailableException;
@@ -30,13 +31,6 @@ import org.apache.log4j.Logger;
 import com.svanloon.common.music.WavePlayer;
 import com.svanloon.common.util.ImageUtil;
 
-/**
- * 
- * Document the  class 
- *
- * @author svanloon
- * @version $Rev$, $LastChangedDate$
- */
 public class IMClient extends JFrame implements ActionListener, CommunicationListener, KeyListener {
 	private static Logger _logger = Logger.getLogger(IMClient.class);
 	private static final long serialVersionUID = -162683526416751751L;
@@ -53,10 +47,7 @@ public class IMClient extends JFrame implements ActionListener, CommunicationLis
 	private String[] sounds;
 
 	/**
-	 * Creates new form Messanger 
-	 * @param port 
-	 * @param ip
-	 * @param name
+	 * Creates new form Messanger
 	 */
 	public IMClient(String name, String ip, int port) {
 		this.name = name;
@@ -75,7 +66,7 @@ public class IMClient extends JFrame implements ActionListener, CommunicationLis
 	private void preloadImages() {
 		String userDir = System.getProperty("user.home");
 		File dir = new File(userDir + "/wizard/expansion/im/bams");
-		if(dir.exists() == false) {
+		if(!dir.exists()) {
 			images = null;
 			return;
 		}
@@ -98,9 +89,7 @@ public class IMClient extends JFrame implements ActionListener, CommunicationLis
 
 		images = fileNames.toArray(new String[fileNames.size()]);
 
-		for(int i = 0; i < images.length; i++) {
-			ImageUtil.getImage(images[i]);
-		}
+		Arrays.stream(images).forEach(ImageUtil::getImage);
 	}
 
 	private void preloadSounds() {
@@ -137,33 +126,33 @@ public class IMClient extends JFrame implements ActionListener, CommunicationLis
 	}
 
 	/**
-	 * 
-	 * Document the initOtherStuff method 
+	 *
+	 * Document the initOtherStuff method
 	 *
 	 */
 	private void init() {
-		
+
 		conversationList.setModel(new DefaultListModel());
 		conversationList.setVisibleRowCount(5);
-		
+
 		JPanel mainPanel = new JPanel();
 		mainPanel.setLayout(new BorderLayout());
 
 		coversationScrollPane = new JScrollPane(conversationList);
 		mainPanel.add(coversationScrollPane, BorderLayout.CENTER);
-		
+
 		sendTextArea.addKeyListener(this);
-		
+
 		JPanel southPanel = new JPanel(new BorderLayout());
 		JButton sendButton = new JButton(SEND);
 		sendButton.addActionListener(this);
 		southPanel.add(sendTextArea, BorderLayout.CENTER);
 		southPanel.add(sendButton, BorderLayout.SOUTH);
 		southPanel.setBorder(BorderFactory.createLoweredBevelBorder());
-		
+
 		mainPanel.add(southPanel, BorderLayout.SOUTH);
 		this.add(mainPanel);
-		
+
 	}
 
 	public void actionPerformed(java.awt.event.ActionEvent p1) {
@@ -182,7 +171,7 @@ public class IMClient extends JFrame implements ActionListener, CommunicationLis
 		IMClient messeger = new IMClient(name, ip, port);
 		messeger.setVisible(true);
 		messeger.pack();
-		
+
 		IMClient messeger2 = new IMClient(name+1, ip, port+1);
 		messeger2.setVisible(true);
 		messeger2.pack();
@@ -211,12 +200,12 @@ public class IMClient extends JFrame implements ActionListener, CommunicationLis
 			handleSend();
 		}
 	}
-	
+
 	public void receiveMessage(String message) {
 		_logger.info("updating conversationText with " + message);
-		// use the GUI thread to update the List 
+		// use the GUI thread to update the List
 		javax.swing.SwingUtilities.invokeLater(new ConversationListUpdater(message));
-		
+
 		if(message.toUpperCase().indexOf("BUZZ") > 0 && message.toUpperCase().lastIndexOf(name.toUpperCase()) > 0) {
 			buzz();
 		}
@@ -225,12 +214,12 @@ public class IMClient extends JFrame implements ActionListener, CommunicationLis
 			bam();
 		}
 	}
-	
+
 	private class ConversationListUpdater implements Runnable{
 		private String message;
 		/**
-		 * 
-		 * Constructs a new <code>ConversationListUpdater</code> object. 
+		 *
+		 * Constructs a new <code>ConversationListUpdater</code> object.
 		 *
 		 * @param message
 		 */
@@ -243,7 +232,7 @@ public class IMClient extends JFrame implements ActionListener, CommunicationLis
     		conversationList.ensureIndexIsVisible(model.getSize()-1);
         }
 	}
-	
+
 	private void buzz() {
 		javax.swing.SwingUtilities.invokeLater(new Runnable(){
 			public void run() {
@@ -305,8 +294,8 @@ public class IMClient extends JFrame implements ActionListener, CommunicationLis
 	}
 
 	/**
-	 * 
-	 * Document the IMClient class 
+	 *
+	 * Document the IMClient class
 	 *
 	 * @author svanloon
 	 * @version $Rev$, $LastChangedDate$
@@ -316,8 +305,8 @@ public class IMClient extends JFrame implements ActionListener, CommunicationLis
 		private Image image;
 		private Dimension screenSize;
 		/**
-		 * 
-		 * Constructs a new <code>BamScreen</code> object. 
+		 *
+		 * Constructs a new <code>BamScreen</code> object.
 		 *
 		 * @param image
 		 */
@@ -332,7 +321,7 @@ public class IMClient extends JFrame implements ActionListener, CommunicationLis
 			Dimension d = this.getSize();
 			double screenXCenter = screenSize.getWidth() / 2.0;
 			double screenYCenter = screenSize.getHeight() / 2.0;
-			
+
 			setLocation((int)(screenXCenter - d.getWidth()/2.0) , (int)(screenYCenter - d.getHeight()/2.0));
 			g.drawImage(image,0,0, (int) d.getWidth(), (int) d.getHeight(), this);
 			//g.drawImage(image,0,0, this);

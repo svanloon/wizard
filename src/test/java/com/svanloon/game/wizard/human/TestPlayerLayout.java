@@ -12,16 +12,16 @@ import com.svanloon.game.wizard.language.LanguageFactory;
 import com.svanloon.game.wizard.language.MessageId;
 
 /**
- * 
- * Document the  class 
+ *
+ * Document the  class
  *
  * @author svanloon
  * @version $Rev$, $LastChangedDate$
  */
 public class TestPlayerLayout {
 	/**
-	 * 
-	 * Constructs a new <code>TestSixPlayerLayout</code> object. 
+	 *
+	 * Constructs a new <code>TestSixPlayerLayout</code> object.
 	 *
 	 */
 	public TestPlayerLayout() {
@@ -29,8 +29,8 @@ public class TestPlayerLayout {
 	}
 
 	/**
-	 * 
-	 * Document the main method 
+	 *
+	 * Document the main method
 	 *
 	 * @param args
 	 */
@@ -43,16 +43,16 @@ public class TestPlayerLayout {
 	}
 
 	/**
-	 * 
-	 * Document the test method 
+	 *
+	 * Document the test method
 	 *
 	 */
 	public void testSix() {
 		initializeComponents(6);
 	}
 	/**
-	 * 
-	 * Document the test method 
+	 *
+	 * Document the test method
 	 *
 	 */
 	public void testFive() {
@@ -60,21 +60,22 @@ public class TestPlayerLayout {
 	}
 
 	/**
-	 * 
-	 * Document the test method 
+	 *
+	 * Document the test method
 	 *
 	 */
 	public void testFour() {
 		initializeComponents(4);
 	}
 	/**
-	 * 
-	 * Document the test method 
+	 *
+	 * Document the test method
 	 *
 	 */
 	public void testThree() {
 		initializeComponents(3);
 	}
+
 	private void initializeComponents(int numberOfPlayers) {
 		PlayerLayout wc = new SixPlayerLayout();
 		switch(numberOfPlayers) {
@@ -169,10 +170,10 @@ public class TestPlayerLayout {
 		wc.addComponent(WizardComponentEnum.NORTH_HAND, north);
 		wc.addComponent(WizardComponentEnum.EAST_HAND,east);
 		wc.addComponent(WizardComponentEnum.WEST_HAND, west);
-		
+
 		wc.addComponent(WizardComponentEnum.SOUTH_EAST_HAND, southEast);
 		wc.addComponent(WizardComponentEnum.SOUTH_SOUTH_EAST_HAND, southSouthEast);
-		
+
 		wc.addComponent(WizardComponentEnum.SCORE_BOARD, scoreBoard);
 		wc.addComponent(WizardComponentEnum.NORTH_TRICK, northTrick);
 		wc.addComponent(WizardComponentEnum.SOUTH_TRICK, southTrick);
@@ -204,7 +205,7 @@ public class TestPlayerLayout {
 			player.getTrickSummary().handleTrickTaken();
 			player.getTrickSummary().handleTrickTaken();
 			player.getTrickSummary().handleTrickTaken();
-			
+
 		}
 
 		JFrame jFrame = new JFrame();

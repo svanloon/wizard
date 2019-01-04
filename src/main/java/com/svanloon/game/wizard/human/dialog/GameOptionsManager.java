@@ -9,19 +9,13 @@ import com.svanloon.game.wizard.core.gameOptions.GameOptions;
 import com.svanloon.game.wizard.core.gameOptions.GameSpeed;
 
 
-/**
- * 
- * Document the  class 
- *
- * @author svanloon
- */
 public class GameOptionsManager extends PropertyManager {
 	private static Logger _logger = Logger.getLogger(GameOptionsManager.class);
 	private static final String BID_TYPE = "BID_TYPE";
 	private static final String GAME_SPEED = "GAME_SPEED";
-	
+
 	/**
-	 * Constructs a new <code>GameOptionsManager</code> object. 
+	 * Constructs a new <code>GameOptionsManager</code> object.
 	 */
 	public GameOptionsManager() {
 		super("gameoption.properties");
@@ -29,7 +23,7 @@ public class GameOptionsManager extends PropertyManager {
 
 	/**
 
-	 * Document the load method 
+	 * Document the load method
 	 * @return GameOptions
 	 */
 	public GameOptions load() {
@@ -47,8 +41,7 @@ public class GameOptionsManager extends PropertyManager {
 	}
 
 	/**
-	 * Document the persist method 
-	 * @param go
+	 * Document the persist method
 	 */
 	public void persist(GameOptions go) {
 		try {

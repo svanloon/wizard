@@ -22,26 +22,19 @@ import com.svanloon.game.wizard.network.MessageType;
 import com.svanloon.game.wizard.network.command.ClientCommandNotifier;
 import com.svanloon.game.wizard.network.event.ClientGameEventNotifier;
 
-/**
- * 
- * Document the  class 
- *
- * @author svanloon
- * @version $Rev$, $LastChangedDate$
- */
 public class BotRunner implements Runnable {
 	private static Logger _logger = Logger.getLogger(BotRunner.class);
 
 	private int initialConnectionPort = 1975;
-	
+
 	private int commandPort;
 	private int eventPort;
 
 	private Player scottPlayer;
 
 	/**
-	 * Constructs a new <code>Client</code> object. 
-	 * @param scottPlayer 
+	 * Constructs a new <code>Client</code> object.
+	 * @param scottPlayer
 	 */
 	public BotRunner(Player scottPlayer) {
 		super();
@@ -49,8 +42,8 @@ public class BotRunner implements Runnable {
 	}
 
 	/**
-	 * 
-	 * Document the main method 
+	 *
+	 * Document the main method
 	 *
 	 * @param args
 	 */
@@ -92,7 +85,7 @@ public class BotRunner implements Runnable {
 				mr2.close();
 			}
 		}
-		
+
 		commandPort = getCommandPort(message);
 		eventPort = getEventPort(message);
 		_logger.info("commandPort = " + commandPort);
@@ -118,7 +111,7 @@ public class BotRunner implements Runnable {
 		ClientGameEventNotifier wen = new ClientGameEventNotifier((GameEventListener)player, emr);
 		Thread went = new Thread(wen);
 		went.start();
-	
+
 	}
 
 	private int getCommandPort(Message message) {

@@ -6,13 +6,6 @@ import java.util.ResourceBundle;
 
 import org.apache.log4j.Logger;
 
-/**
- * 
- * Document the class 
- *
- * @author svanloon
- * @version $Rev$, $LastChangedDate$
- */
 public class LanguageFactory {
 	private static Logger _logger = Logger.getLogger(LanguageFactory.class);
 
@@ -33,8 +26,8 @@ public class LanguageFactory {
 	}
 
 	/**
-	 * 
-	 * Document the setLocale method 
+	 *
+	 * Document the setLocale method
 	 *
 	 * @param locale
 	 */
@@ -46,12 +39,12 @@ public class LanguageFactory {
 		}
 	}
 	private LanguageFactory() {
-		this.locale = getLocale(); 
+		this.locale = getLocale();
 		loadProperties();
 	}
 
 	private LanguageFactory(Locale locale) {
-		this.locale = locale; 
+		this.locale = locale;
 		loadProperties();
 	}
 
@@ -68,22 +61,22 @@ public class LanguageFactory {
 	}
 
 	/**
-	 * 
-	 * Document the getInstance method 
+	 *
+	 * Document the getInstance method
 	 *
 	 * @return LanguageFactory
 	 */
 	public static LanguageFactory getInstance() {
 		if(instance == null) {
-			instance = new LanguageFactory(); 
+			instance = new LanguageFactory();
 		}
 
 		return instance;
 	}
 
 	/**
-	 * 
-	 * Document the getString method 
+	 *
+	 * Document the getString method
 	 *
 	 * @param key
 	 * @param name
@@ -95,7 +88,7 @@ public class LanguageFactory {
 		String withParams;
 		if(noParamsAdded != null) {
 			String param = "%" + name + "%";
-			int index = noParamsAdded.indexOf(param); 
+			int index = noParamsAdded.indexOf(param);
 			if( index > -1) {
 				withParams = noParamsAdded.substring(0, index) + value + noParamsAdded.substring(index + param.length());
 			} else {
@@ -108,8 +101,8 @@ public class LanguageFactory {
 	}
 
 	/**
-	 * 
-	 * Document the getString method 
+	 *
+	 * Document the getString method
 	 *
 	 * @param key
 	 * @return String

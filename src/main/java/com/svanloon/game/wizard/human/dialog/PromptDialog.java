@@ -17,18 +17,11 @@ import javax.swing.WindowConstants;
 import com.svanloon.game.wizard.language.LanguageFactory;
 import com.svanloon.game.wizard.language.MessageId;
 
-/**
- * 
- * Document the  class 
- *
- * @author svanloon
- * @version $Rev$, $LastChangedDate$
- */
 public class PromptDialog extends JDialog implements ActionListener, KeyListener {
 	private static final long serialVersionUID = 1L;
 	private boolean allowNull = false;
 	private boolean inputTypeInt = false;
-	
+
 	private int min = 0;
 	private int max = 15;
 	private int notAllowedToEqual = -1;
@@ -37,16 +30,16 @@ public class PromptDialog extends JDialog implements ActionListener, KeyListener
 
 
 	/**
-	 * 
-	 * Constructs a new <code>PromptDialog</code> object. 
+	 *
+	 * Constructs a new <code>PromptDialog</code> object.
 	 *
 	 * @param title
 	 * @param msg
-	 * @param defaultValue 
+	 * @param defaultValue
 	 * @param inputTypeInt
 	 * @param min
 	 * @param max
-	 * @param notAllowedToEqual 
+	 * @param notAllowedToEqual
 	 */
 	public PromptDialog(String title, String msg, String defaultValue, boolean inputTypeInt, int min, int max, int notAllowedToEqual) {
 		super();
@@ -74,7 +67,7 @@ public class PromptDialog extends JDialog implements ActionListener, KeyListener
 		JButton okButton = new JButton(LanguageFactory.getInstance().getString(MessageId.ok));
 		okButton.addActionListener(this);
 		mainPanel.add(okButton);
-		
+
 		this.setPreferredSize(new Dimension(300,80));
 		//this.setLocation(200, 200);
 		this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -85,8 +78,8 @@ public class PromptDialog extends JDialog implements ActionListener, KeyListener
 	}
 
 	/**
-	 * 
-	 * Document the prompt method 
+	 *
+	 * Document the prompt method
 	 *
 	 */
 	public void prompt() {
