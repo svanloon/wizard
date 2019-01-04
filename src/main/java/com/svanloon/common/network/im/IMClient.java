@@ -1,22 +1,15 @@
 package com.svanloon.common.network.im;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Image;
 import java.awt.Point;
-import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -28,7 +21,6 @@ import javax.swing.JTextArea;
 
 import org.apache.log4j.Logger;
 
-import com.svanloon.common.music.WavePlayer;
 import com.svanloon.common.util.ImageUtil;
 
 public class IMClient extends JFrame implements ActionListener, CommunicationListener, KeyListener {
@@ -255,76 +247,7 @@ public class IMClient extends JFrame implements ActionListener, CommunicationLis
 	}
 
 	private void bam() {
-		if(images == null) {
-			// nothing to do
-			return;
-		}
-
-		Image image = ImageUtil.getImage(images[(int)(Math.random()*images.length)]);
-		BamScreen bs = new BamScreen(image);
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		double screenWidth = screenSize.getWidth();
-		double screenHeight = screenSize.getHeight();
-		boolean isFirst = true;
-		for(double i = 1.0; i < 1.1; i = i + 0.05) {
-			bs.setSize((int)(i * screenWidth), (int)(i*screenHeight));
-			bs.setVisible(true);
-			bs.repaint();
-			if(isFirst && sounds != null) {
-				isFirst = false;
-				WavePlayer wavePlayer = new WavePlayer();
-				try {
-					wavePlayer.play(sounds[(int)(Math.random()*sounds.length)]);
-				} catch (UnsupportedAudioFileException e1) {
-					e1.printStackTrace();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				} catch (LineUnavailableException e1) {
-					e1.printStackTrace();
-				}
-			}
-			try {
-				Thread.sleep(500);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
-		bs.setVisible(false);
-		bs.dispose();
+		return;
 	}
 
-	/**
-	 *
-	 * Document the IMClient class
-	 *
-	 * @author svanloon
-	 * @version $Rev$, $LastChangedDate$
-	 */
-	private class BamScreen extends JFrame {
-		private static final long serialVersionUID = 1L;
-		private Image image;
-		private Dimension screenSize;
-		/**
-		 *
-		 * Constructs a new <code>BamScreen</code> object.
-		 *
-		 * @param image
-		 */
-		public BamScreen(Image image) {
-			super();
-			this.image = image;
-			screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		}
-
-		@Override
-		public void paint(Graphics g) {
-			Dimension d = this.getSize();
-			double screenXCenter = screenSize.getWidth() / 2.0;
-			double screenYCenter = screenSize.getHeight() / 2.0;
-
-			setLocation((int)(screenXCenter - d.getWidth()/2.0) , (int)(screenYCenter - d.getHeight()/2.0));
-			g.drawImage(image,0,0, (int) d.getWidth(), (int) d.getHeight(), this);
-			//g.drawImage(image,0,0, this);
-		}
-	}
 }
