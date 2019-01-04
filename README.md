@@ -20,6 +20,8 @@ Create the wizard-all.jar by running
 Then run with
 ```java -jar build/libs/wizard-all.jar```
 
+You can download from here
+
 # Network Ports
 
 The TCP/IP ports are as follows:
