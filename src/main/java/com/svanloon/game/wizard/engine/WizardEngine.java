@@ -48,9 +48,7 @@ public class WizardEngine implements Runnable{
 	/**
 	 *
 	 * Constructs a new <code>WizardEngine</code> object.
-	 *
-	 * @param go
-	 */
+	 *	 */
 	public WizardEngine(GameOptions go) {
 		super();
 		this.go = go;
@@ -58,7 +56,7 @@ public class WizardEngine implements Runnable{
 		//cardFinder = new PokerCardFinder();
 	}
 
-	private List<Player> _playerCollection = new ArrayList<Player>();
+	private List<Player> _playerCollection = new ArrayList<>();
 	private Score overallScores = new Score();
 	private GameEventBroadcaster gameEventNotifier = new GameEventBroadcaster();
 
@@ -87,7 +85,7 @@ public class WizardEngine implements Runnable{
 			return true;
 		}
 		for(Integer id:ids) {
-			if(id.intValue() == currPlayerId) {
+			if(id == currPlayerId) {
 				return true;
 			}
 		}
@@ -142,7 +140,6 @@ public class WizardEngine implements Runnable{
 	}
 
 	private void scoreRound(RoundSummary roundSummary, Bid bid, Game game) {
-		int i = 0;
 		for (Player player: this._playerCollection) {
 			int tricksWon = roundSummary.tricksWonBy(player);
 
@@ -158,7 +155,6 @@ public class WizardEngine implements Runnable{
 			game.addScore(player.getId(), score);
 			IndividualScore individualScore = new IndividualScore(player, score);
 			this.overallScores.addIndividualScore(individualScore);
-			i++;
 		}
 	}
 
@@ -169,7 +165,7 @@ public class WizardEngine implements Runnable{
 		TrickTracker trickTracker = new TrickTracker(trump);
 		for (Player player: new PlayerIterator(_playerCollection, lead)) {
 			Card card = null;
-			for (boolean isValid = false; isValid == false;) {
+			for (boolean isValid = false; !isValid;) {
 				// need to make sure the card is valid. otherwise repeat
 				gameEventNotifier.notify(new PlayerNeedsToPlay(player.getId()));
 				card = player.playCard();
@@ -195,29 +191,17 @@ public class WizardEngine implements Runnable{
 		return trickTracker;
 	}
 
-	/**
-	 *
-	 * Document the addPlayers method
-	 *
-	 * @param players
-	 */
 	public void addPlayers(List<Player> players) {
 		this._playerCollection = players;
 
 	}
 
-	/**
-	 *
-	 * Document the addGameEventListener method
-	 *
-	 * @param listener
-	 */
 	public void addGameEventListener(GameEventListener listener) {
 		gameEventNotifier.addListener(listener);
 	}
 
 	private List<String> getPlayerNames() {
-		List<String> playerNames = new ArrayList<String>();
+		List<String> playerNames = new ArrayList<>();
 		for(Player player: this._playerCollection) {
 			String name = player.getName();
 			playerNames.add(name);
@@ -226,12 +210,12 @@ public class WizardEngine implements Runnable{
 	}
 
 	private List<Integer> getPlayerId() {
-		List<Integer> playerIds = new ArrayList<Integer>();
+		List<Integer> playerIds = new ArrayList<>();
 		for(Player player: this._playerCollection) {
 			if(player.getId() < 1) {
 				throw new RuntimeException("player "+player.getName()+" not initialized properly");
 			}
-			playerIds.add(Integer.valueOf(player.getId()));
+			playerIds.add(player.getId());
 		}
 		return playerIds;
 	}
@@ -270,7 +254,7 @@ public class WizardEngine implements Runnable{
 		List<Integer> playerIds = getPlayerId();
 		List<String> playerNames = getPlayerNames();
 		for (int i = 0; i < playerIds.size(); i++) {
-			_game.addPlayer(playerIds.get(i).intValue(),  playerNames.get(i));
+			_game.addPlayer(playerIds.get(i),  playerNames.get(i));
 		}
 		gameEventNotifier.notify(new NewGameEvent(playerIds,playerNames));
 		for (int roundId = startRound; roundId < endRound + 1; roundId = roundId + inc) {
@@ -323,9 +307,9 @@ public class WizardEngine implements Runnable{
 	}
 
 	private Collection<String> getPlayerNames(Collection<Integer> ids) {
-		Collection<String> winningPlayers = new ArrayList<String>();
+		Collection<String> winningPlayers = new ArrayList<>();
 		for(Integer id:ids) {
-			winningPlayers.add(findPlayerById(id.intValue()).getName());
+			winningPlayers.add(findPlayerById(id).getName());
 		}
 		return winningPlayers;
 	}
@@ -340,16 +324,16 @@ public class WizardEngine implements Runnable{
 	}
 
 	private Collection<Integer>  calcWinningIds() {
-		Collection<Integer> winningPlayerIds = new ArrayList<Integer>();
+		Collection<Integer> winningPlayerIds = new ArrayList<>();
 		int highScore = Integer.MIN_VALUE;
 		for(IndividualScore individualScore : this.overallScores.getIndividualScoreCollection()) {
 			if(individualScore.getScore() > highScore) {
 				highScore = individualScore.getScore();
 
-				winningPlayerIds = new ArrayList<Integer>();
-				winningPlayerIds.add(Integer.valueOf(individualScore.getPlayer().getId()));
+				winningPlayerIds = new ArrayList<>();
+				winningPlayerIds.add(individualScore.getPlayer().getId());
 			} else if (individualScore.getScore() == highScore) {
-				winningPlayerIds.add(Integer.valueOf(individualScore.getPlayer().getId()));
+				winningPlayerIds.add(individualScore.getPlayer().getId());
 			}
 		}
 		return winningPlayerIds;
@@ -367,12 +351,6 @@ public class WizardEngine implements Runnable{
 	}
 
 
-	/**
-	 *
-	 * Document the main method
-	 *
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		WizardEngine wizardEngine = new WizardEngine(new GameOptions());
 		Thread t = new Thread(wizardEngine);
@@ -385,13 +363,6 @@ public class WizardEngine implements Runnable{
 		private List<Player> players;
 		private int i = 0;
 
-		/**
-		 *
-		 * Constructs a new <code>PlayerIterator</code> object.
-		 *
-		 * @param players
-		 * @param lead
-		 */
 		public PlayerIterator(List<Player> players, int lead) {
 			this.players = players;
 			this.lead = lead;

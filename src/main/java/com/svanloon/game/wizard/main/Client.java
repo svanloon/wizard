@@ -22,26 +22,16 @@ import com.svanloon.game.wizard.network.MessageType;
 import com.svanloon.game.wizard.network.command.ClientCommandNotifier;
 import com.svanloon.game.wizard.network.event.ClientGameEventNotifier;
 
-/**
- * 
- * Document the  class 
- *
- * @author svanloon
- * @version $Rev$, $LastChangedDate$
- */
 public class Client implements Runnable {
 	private static Logger _logger = Logger.getLogger(Client.class.getName());
 
 	private int initialConnectionPort = 1975;
-	
-	//private int commandPort;
-	//private int eventPort;
 
 	private UserPreferences up;
 
 	/**
-	 * Constructs a new <code>Client</code> object. 
-	 * @param up 
+	 * Constructs a new <code>Client</code> object.
+	 * @param up
 	 */
 	public Client(UserPreferences up) {
 		super();
@@ -74,7 +64,7 @@ public class Client implements Runnable {
 				mr2.close();
 			}
 		}
-		
+
 		int playerId = getPlayerId(message);
 		int commandPort = getCommandPort(message);
 		int eventPort = getEventPort(message);

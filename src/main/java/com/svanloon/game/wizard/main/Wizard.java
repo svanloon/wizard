@@ -9,22 +9,14 @@ import com.svanloon.game.wizard.core.gameOptions.GameOptions;
 import com.svanloon.game.wizard.human.HumanPlayerSwing;
 import com.svanloon.game.wizard.human.dialog.UserPreferences;
 import com.svanloon.game.wizard.language.LanguageFactory;
+import java.util.stream.IntStream;
 
-/**
- * 
- * Document the  class 
- *
- * @author svanloon
- * @version $Rev$, $LastChangedDate$
- */
+
 public class Wizard {
 	private static final String HOSTED_THREAD = "Hosted";
 	private static final String CONNECT_TO_A_GAME_THREAD = "Connect to a game";
 	private static final String WIZARD_THREAD = "Wizard Thread";
 
-	/**
-	 * Constructs a new <code>Wizard</code> object. 
-	 */
 	public Wizard() {
 		super();
 	}
@@ -68,8 +60,8 @@ public class Wizard {
 	}
 
 	private List<String> createListOfRandomNames() {
-		List<String> shuffled = new ArrayList<String>();
-		List<String> names = new ArrayList<String>();
+		List<String> shuffled = new ArrayList<>();
+		List<String> names = new ArrayList<>();
 		names.add("Carl");
 		names.add("Judith");
 		names.add("Jenny");
@@ -78,19 +70,17 @@ public class Wizard {
 		names.add("Jesse");
 
 		int times = names.size();
-		for (int i = 0; i < times; i++) {
-			int randomCardNumber = (int) (Math.random() * names.size());
+		IntStream.range(0, times).map(i -> (int) (Math.random() * names.size())).forEach(randomCardNumber -> {
 			shuffled.add(names.get(randomCardNumber));
 			names.remove(randomCardNumber);
-		}
+		});
 		return shuffled;
 	}
-	
+
 	/**
-	 * 
-	 * Document the main method 
 	 *
-	 * @param args
+	 * Document the main method
+	 *
 	 */
 	public static void main(String args[]) {
 		Wizard wizard = new Wizard();

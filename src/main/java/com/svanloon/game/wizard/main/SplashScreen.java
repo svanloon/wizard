@@ -27,15 +27,12 @@ import com.svanloon.game.wizard.human.screen.RulesScreen;
 import com.svanloon.game.wizard.language.LanguageFactory;
 import com.svanloon.game.wizard.language.MessageId;
 
-/**
- * @author Administrator
- */
 public class SplashScreen extends JDialog implements ActionListener, WindowListener, Runnable {
 	private static Logger _logger = Logger.getLogger(SplashScreen.class);
 	private static final long serialVersionUID = 1L;
 	private GameType gameType = GameType.HOSTED;
 	private int displayScreen = -1;
-	
+
 	public void run() {
 		if(displayScreen == 1) {
 			UserPreferencesScreen ups2 = new UserPreferencesScreen();
@@ -52,8 +49,8 @@ public class SplashScreen extends JDialog implements ActionListener, WindowListe
 	private GameOptionsScreen gos;
 
 	/**
-	 * 
-	 * Constructs a new <code>SplashScreen</code> object. 
+	 *
+	 * Constructs a new <code>SplashScreen</code> object.
 	 *
 	 */
 	public SplashScreen() {
@@ -87,9 +84,9 @@ public class SplashScreen extends JDialog implements ActionListener, WindowListe
 		JPanel col1 = new JPanel();
 		col1.setLayout(new BoxLayout(col1, BoxLayout.Y_AXIS));
 		col1.setBackground(bg);
-		
+
 		// combine panel
-		
+
 		col1.add(startButton);
 		col1.add(connectButton);
 		col1.add(instructionsButton);
@@ -131,7 +128,7 @@ public class SplashScreen extends JDialog implements ActionListener, WindowListe
 	private boolean block = false;
 
 	/**
-	 * Document the prompt method 
+	 * Document the prompt method
 	 */
 	public void prompt() {
 		this.setVisible(true);
@@ -146,8 +143,8 @@ public class SplashScreen extends JDialog implements ActionListener, WindowListe
 	}
 
 	/**
-	 * 
-	 * Document the getGameType method 
+	 *
+	 * Document the getGameType method
 	 *
 	 * @return gameType
 	 */
@@ -196,12 +193,6 @@ public class SplashScreen extends JDialog implements ActionListener, WindowListe
 	}
 
 
-	/**
-	 * 
-	 * Document the main method 
-	 *
-	 * @param args
-	 */
 	public static void main(String args[]) {
 		SplashScreen ss = new SplashScreen();
 		ss.prompt();
@@ -209,7 +200,7 @@ public class SplashScreen extends JDialog implements ActionListener, WindowListe
 
 	public void windowActivated(WindowEvent e) {
 		// Auto-generated method stub
-		
+
 	}
 
 	public void windowClosed(WindowEvent e) {
@@ -219,27 +210,27 @@ public class SplashScreen extends JDialog implements ActionListener, WindowListe
 	public void windowClosing(WindowEvent e) {
 		// Auto-generated method stub
 		block = false;
-		System.exit(1);		
+		System.exit(1);
 	}
 
 	public void windowDeactivated(WindowEvent e) {
 		// Auto-generated method stub
-		
+
 	}
 
 	public void windowDeiconified(WindowEvent e) {
 		// Auto-generated method stub
-		
+
 	}
 
 	public void windowIconified(WindowEvent e) {
 		// Auto-generated method stub
-		
+
 	}
 
 	public void windowOpened(WindowEvent e) {
 		// Auto-generated method stub
-		
+
 	}
 
 	/**

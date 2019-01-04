@@ -33,20 +33,13 @@ import com.svanloon.game.wizard.network.command.ServerNetworkPlayer;
 import com.svanloon.game.wizard.network.event.ServerGameEventListener;
 import com.svanloon.game.wizard.stats.Game;
 
-/**
- * 
- * Document the  class 
- *
- * @author svanloon
- * @version $Rev$, $LastChangedDate$
- */
 public class Server implements Runnable {
 	private static Logger _logger = Logger.getLogger(Server.class);
 	private static final String NOT_ENOUGH_COMPUTER_PLAYERS = "Not enough computer players";
 	private static final String WIZARD_ENGINE_THREAD = "WizardEngine";
 	private Game game;
 	private int initialConnectionPort = 1975;
-	
+
 	private int initialCommandPort = 2075;
 	private int initialEventPort = 2176;
 
@@ -60,10 +53,10 @@ public class Server implements Runnable {
 
 
 	/**
-	 * Constructs a new <code>Server</code> object. 
-	 * @param hps 
-	 * @param go 
-	 * @param totalNumberOfPlayers 
+	 * Constructs a new <code>Server</code> object.
+	 * @param hps
+	 * @param go
+	 * @param totalNumberOfPlayers
 	 */
 	public Server(HumanPlayerSwing hps, GameOptions go, int totalNumberOfPlayers) {
 		super();
@@ -73,8 +66,8 @@ public class Server implements Runnable {
 	}
 
 	/**
-	 * 
-	 * Document the addBot method 
+	 *
+	 * Document the addBot method
 	 *
 	 * @param listener
 	 */
@@ -83,8 +76,8 @@ public class Server implements Runnable {
 	}
 
 	/**
-	 * 
-	 * Document the addBot method 
+	 *
+	 * Document the addBot method
 	 *
 	 * @param player
 	 */
@@ -111,9 +104,9 @@ public class Server implements Runnable {
 			int id = (totalPlayerNumberIndex+1)*21601;
 			Player player;
 			if((numberOfHumanPlayers == -1) || // computer players play themselves
-			   (numberOfHumanPlayers == 0 && totalPlayerNumberIndex > 0) || // assumes 1 player + n-1 computers 
+			   (numberOfHumanPlayers == 0 && totalPlayerNumberIndex > 0) || // assumes 1 player + n-1 computers
 			   (numberOfHumanPlayers == 1 && totalPlayerNumberIndex > 0) ||  // assumes 1 player + n-1 computers
-			   (numberOfHumanPlayers == 2 && 
+			   (numberOfHumanPlayers == 2 &&
 					   (
 							 (totalNumberOfPlayers == 3 && totalPlayerNumberIndex == 1) ||
 						     (totalNumberOfPlayers == 4 && (totalPlayerNumberIndex == 1 || totalPlayerNumberIndex == 3)) ||
@@ -121,27 +114,27 @@ public class Server implements Runnable {
 						     (totalNumberOfPlayers == 6 && (totalPlayerNumberIndex == 1 || totalPlayerNumberIndex == 3 || totalPlayerNumberIndex == 4 || totalPlayerNumberIndex == 5))
 					   )
 			   ) ||
-			   (numberOfHumanPlayers == 3 && 
+			   (numberOfHumanPlayers == 3 &&
 					   (
 						     (totalNumberOfPlayers == 4 && (totalPlayerNumberIndex == 3)) ||
 						     (totalNumberOfPlayers == 5 && (totalPlayerNumberIndex == 1 || totalPlayerNumberIndex == 3)) ||
 						     (totalNumberOfPlayers == 6 && (totalPlayerNumberIndex == 1 || totalPlayerNumberIndex == 3 || totalPlayerNumberIndex == 5))
 					   )
 			   ) ||
-			   (numberOfHumanPlayers == 4 && 
+			   (numberOfHumanPlayers == 4 &&
 					   (
 						     (totalNumberOfPlayers == 5 && (totalPlayerNumberIndex == 1)) ||
 						     (totalNumberOfPlayers == 6 && (totalPlayerNumberIndex == 1 || totalPlayerNumberIndex == 3))
 					   )
 			   ) ||
-			   (numberOfHumanPlayers == 5 && 
+			   (numberOfHumanPlayers == 5 &&
 					   (
 						     (totalNumberOfPlayers == 6 && (totalPlayerNumberIndex == 1 ))
 					   )
 			   )
-			   
+
 			 ) {
-				
+
 				Player bot;
 				if (botsIterator.hasNext()) {
 					bot = botsIterator.next();
@@ -155,7 +148,7 @@ public class Server implements Runnable {
 					_logger.error(NOT_ENOUGH_COMPUTER_PLAYERS);
 					throw new IllegalStateException(NOT_ENOUGH_COMPUTER_PLAYERS);
 				}
-				
+
 			} else if (numberOfHumanPlayers > 1 && totalPlayerNumberIndex > 0) {
 				try {
 					player = getNetworkPlayer(wizardEngine, totalPlayerNumberIndex, id, go);
@@ -167,12 +160,12 @@ public class Server implements Runnable {
 				player = getLocalPlayer(wizardEngine);
 			}
 			player.setId(id);
-			
+
 			players.add(player);
 		}
-	
+
 		wizardEngine.addPlayers(players);
-		
+
 		Thread t = new Thread(wizardEngine);
 		t.setName(WIZARD_ENGINE_THREAD);
 		t.start();
@@ -187,8 +180,8 @@ public class Server implements Runnable {
 	}
 
 	/**
-	 * 
-	 * Document the getGame method 
+	 *
+	 * Document the getGame method
 	 *
 	 * @return Game
 	 */
@@ -197,8 +190,8 @@ public class Server implements Runnable {
 	}
 
 	/**
-	 * 
-	 * Document the setNumberOfPlayers method 
+	 *
+	 * Document the setNumberOfPlayers method
 	 *
 	 * @param numberOfPlayers
 	 */
@@ -223,11 +216,11 @@ public class Server implements Runnable {
 	private Player getLocalPlayer(WizardEngine wizardEngine) {
 		String name;
 		if(hps.getName() == null) {
-			name = getLocalName();	
+			name = getLocalName();
 		} else {
 			name = hps.getName();
 		}
-		
+
 		HumanPlayerSwing player = hps;
 		player.setName(name);
 		wizardEngine.addGameEventListener(player);
