@@ -1,3 +1,13 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:4.0.3'
+    }
+}
+
+apply plugin: 'com.github.johnrengelman.shadow'
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'eclipse'
@@ -10,8 +20,8 @@ repositories {
 idea {
     project {
         //if you want to set specific jdk and language level
-        jdkName = '1.7'
-        languageLevel = '1.7'
+        jdkName = '1.8'
+        languageLevel = '1.8'
     }
     module {
         downloadSources=true
@@ -20,7 +30,25 @@ idea {
 }
 
 dependencies {
-    compile files('lib/junit-3.8.1.jar', 'lib/log4j.jar', 'lib/one-jar-boot-0.95.jar')
+    //compile files('lib/junit-3.8.1.jar', 'lib/log4j.jar')
+    compile group: 'log4j', name: 'log4j', version: '1.2.13'
+    testCompile group: 'junit', name: 'junit', version: '3.8.1'
 
+}
+
+task testJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'com.svanloon.game.wizard.main.Wizard'
+    }
+}
+
+shadowJar {
+    manifest {
+        inheritFrom project.tasks.testJar.manifest
+    }
+}
+
+build {
+  dependsOn shadowJar
 }
 

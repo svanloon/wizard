@@ -1,1 +1,0 @@
-Main-Class: com.svanloon.game.wizard.main.Wizard

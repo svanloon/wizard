@@ -1,23 +1,23 @@
 BUT DU JEU
-Le but du jeu est de prédire correctement le nombre de levees que chaque personne ramasse à chaque tour. La personne qui prédit juste se voit attribuer des points, et c’est la personne qui a le plus grand nombre de points qui gagne la partie.
+Le but du jeu est de prÃ©dire correctement le nombre de levees que chaque personne ramasse Ã  chaque tour. La personne qui prÃ©dit juste se voit attribuer des points, et cÂ’est la personne qui a le plus grand nombre de points qui gagne la partie.
 DISTRIBUTION DES CARTES 
-Pour choisir le donneur, chaque joueur recoit une carte et c’est la carte la plus haute qui l’emporte. Les cartes sont distributées ainsi: au premier tour, chaque joueur recoit une carte; au deuxième tour, deux cartes’ au troisième tour, trois cartes et ainsi de suite. Après avoir joué la première partie, le joueur à la gauche  du premier donneur brasse et distribue les cartes. A` la fin de la brasse, la carte suivante est retournée: elle indique la couleur de l’atout. Si la carte retournée est un Joker, elle est de nouveau retournée et il n’y a aucun atout pour ce tour. Si la carte retournée est un Wizard, le donneur choisit la coloeur de l’atout et il peut examiner ses cartes avant d’annoncer l’atout. Il n’y a aucun atout au dernier tour de chaque partie.
+Pour choisir le donneur, chaque joueur recoit une carte et cÂ’est la carte la plus haute qui lÂ’emporte. Les cartes sont distributÃ©es ainsi: au premier tour, chaque joueur recoit une carte; au deuxiÃ¨me tour, deux cartesÂ’ au troisiÃ¨me tour, trois cartes et ainsi de suite. AprÃ¨s avoir jouÃ© la premiÃ¨re partie, le joueur Ã  la gauche  du premier donneur brasse et distribue les cartes. A` la fin de la brasse, la carte suivante est retournÃ©e: elle indique la couleur de lÂ’atout. Si la carte retournÃ©e est un Joker, elle est de nouveau retournÃ©e et il nÂ’y a aucun atout pour ce tour. Si la carte retournÃ©e est un Wizard, le donneur choisit la coloeur de lÂ’atout et il peut examiner ses cartes avant dÂ’annoncer lÂ’atout. Il nÂ’y a aucun atout au dernier tour de chaque partie.
 ANNONCE DES MISES
-Chaque joueur, commencant à la gauche du donneur, annonce le nombre de levées qu’il compte faire (zéro ou une pour le premier tour) et le marqueur note ce nombre sur le carnet. Si le dernier joueur qui fait sa mise a le pointage le plus élevé sur la feuile de pointage (et qu’il ne partage pas la première place avec une autre personne), il peut, le cas èchèant, ne faire aucune mise. Les mises seront don’t ègales. Une personne doit alors perdre des points après avoir joué sa main puisque le nombre de levées annoncées est inférieur ou supérieur à la mise.
-*Lorsque le nombre total de levées correspond au nombre total de levées disponibles, la mise est «égale».
-DÉROULEMENT DU JEU 
-Le Joueur à gauche du donneur joue la première carte de son choix, puis les autres continuent dans le sens des aiguilles d’une montre. Ils doivent absolument fournirla couleur demandés’ils en ont. Il y a deux exceptions à cette dernière règle. On peut jouer un Wizard ou un Joker, à n’importe quel moment! 
-Le joueur qui remporte la levé est celui qui: 
-a)       a joué le premier Wizard; 
-b)      a joué le plus haut atout s’il n’ya pas eu de Wizard;
-c)      a joué la plus haute carte dans la couleur demandée, s’il n’y a pas d’atout. Le gagnant de la levée devient le donneur au tour suivant.
+Chaque joueur, commencant Ã  la gauche du donneur, annonce le nombre de levÃ©es quÂ’il compte faire (zÃ©ro ou une pour le premier tour) et le marqueur note ce nombre sur le carnet. Si le dernier joueur qui fait sa mise a le pointage le plus Ã©levÃ© sur la feuile de pointage (et quÂ’il ne partage pas la premiÃ¨re place avec une autre personne), il peut, le cas Ã¨chÃ¨ant, ne faire aucune mise. Les mises seront donÂ’t Ã¨gales. Une personne doit alors perdre des points aprÃ¨s avoir jouÃ© sa main puisque le nombre de levÃ©es annoncÃ©es est infÃ©rieur ou supÃ©rieur Ã  la mise.
+*Lorsque le nombre total de levÃ©es correspond au nombre total de levÃ©es disponibles, la mise est Â«Ã©galeÂ».
+DÃ‰ROULEMENT DU JEU 
+Le Joueur Ã  gauche du donneur joue la premiÃ¨re carte de son choix, puis les autres continuent dans le sens des aiguilles dÂ’une montre. Ils doivent absolument fournirla couleur demandÃ©sÂ’ils en ont. Il y a deux exceptions Ã  cette derniÃ¨re rÃ¨gle. On peut jouer un Wizard ou un Joker, Ã  nÂ’importe quel moment! 
+Le joueur qui remporte la levÃ© est celui qui: 
+a)       a jouÃ© le premier Wizard; 
+b)      a jouÃ© le plus haut atout sÂ’il nÂ’ya pas eu de Wizard;
+c)      a jouÃ© la plus haute carte dans la couleur demandÃ©e, sÂ’il nÂ’y a pas dÂ’atout. Le gagnant de la levÃ©e devient le donneur au tour suivant.
 
   WIZARDS OU JOKERS EN PREMIER
-Le joueur qui joue un Wizard comme première carte remporte la levée et les autres joueurs peuvent se débarrasser de n’importe quelle carte, y compris un autre Wizard. Si la première carte jouée est un Joker, elle est nulle. C’est la deuxième carte jouée qui détermine la couleur pour le tour. Le Joker perd toujours. La seule exception à cette règle est lorsque plusieurs Jokers sont joués. En efet, le premier Joker déposé sur la table remporte la levée 
+Le joueur qui joue un Wizard comme premiÃ¨re carte remporte la levÃ©e et les autres joueurs peuvent se dÃ©barrasser de nÂ’importe quelle carte, y compris un autre Wizard. Si la premiÃ¨re carte jouÃ©e est un Joker, elle est nulle. CÂ’est la deuxiÃ¨me carte jouÃ©e qui dÃ©termine la couleur pour le tour. Le Joker perd toujours. La seule exception Ã  cette rÃ¨gle est lorsque plusieurs Jokers sont jouÃ©s. En efet, le premier Joker dÃ©posÃ© sur la table remporte la levÃ©e 
 
   POINTS
-Le joueur qui a prédit correctement le nombre de ses levées marque 20 points, plus 10 points par levée ramassée. Le joueur qui n’a pas prédit correctement ses levées perd 10 points par levée en plus ou en moins. Chaque fois qu’un joueur fait une fausse prédiction, ses résultatssont encerclés sur le carnet. 
+Le joueur qui a prÃ©dit correctement le nombre de ses levÃ©es marque 20 points, plus 10 points par levÃ©e ramassÃ©e. Le joueur qui nÂ’a pas prÃ©dit correctement ses levÃ©es perd 10 points par levÃ©e en plus ou en moins. Chaque fois quÂ’un joueur fait une fausse prÃ©diction, ses rÃ©sultatssont encerclÃ©s sur le carnet. 
 
   AUTRES TYPES DE MISE
-1. Mise cachée: tous les joueurs annoncent leur mise en même temps. 
-2. Mise retardée: tous les joueurs inscrivent leur mise sur un bout de papier et la révèlent dès que la première carte a été jouée. 
+1. Mise cachÃ©e: tous les joueurs annoncent leur mise en mÃªme temps. 
+2. Mise retardÃ©e: tous les joueurs inscrivent leur mise sur un bout de papier et la rÃ©vÃ¨lent dÃ¨s que la premiÃ¨re carte a Ã©tÃ© jouÃ©e. 
